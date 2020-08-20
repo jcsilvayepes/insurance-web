@@ -12,5 +12,6 @@ namespace Insurance.Web.Domain.Entities
         public int CoverageMonth { get; set; }
         public double InsurancePrice { get; set; }
         public RiskTypeEntity RiskType { get; set; }
+
     }
 }
