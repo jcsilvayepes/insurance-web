@@ -4,14 +4,16 @@ using Insurance.Web.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Insurance.Web.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(InsuranceDBContext))]
-    partial class InsuranceDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200820040842_AddingRiskTypeSeeding")]
+    partial class AddingRiskTypeSeeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,28 +34,6 @@ namespace Insurance.Web.Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("PolicyCoverageTypeEntity");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Earthquake"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Fire"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Theft"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "Loss"
-                        });
                 });
 
             modelBuilder.Entity("Insurance.Web.Domain.Entities.PolicyEntity", b =>

@@ -32,6 +32,10 @@ namespace Insurance.Web.Api
             }, ServiceLifetime.Scoped);
 
             services.AddScoped<RiskTypeRepository>();
+            services.AddScoped<PolicyRepository>();
+            services.AddScoped<PolicyCoverageTypeRepository>();
+            services.AddScoped<ClientRepository>();
+            services.AddScoped<PolicyByClientRepository>();
 
             services.AddControllers();
         }
