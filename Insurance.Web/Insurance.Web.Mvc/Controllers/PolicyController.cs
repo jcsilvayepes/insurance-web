@@ -24,7 +24,7 @@ namespace Insurance.Web.Mvc.Controllers
             if(policyViewModel == null || string.IsNullOrEmpty(policyViewModel.Name))
                 return View();
 
-            if (policyViewModel.RiskType.Id == 4 && policyViewModel.PercentageCoverage < 0.5)
+            if (policyViewModel.RiskType == 4 && policyViewModel.PercentageCoverage < 0.5)
             {
                 if (await _policyService.CreateAsync(policyViewModel))
                     return View();
