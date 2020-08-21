@@ -4,14 +4,16 @@ using Insurance.Web.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Insurance.Web.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(InsuranceDBContext))]
-    partial class InsuranceDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200821053444_Modifying PolicyEntity structure")]
+    partial class ModifyingPolicyEntitystructure
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,6 +30,9 @@ namespace Insurance.Web.Infrastructure.Data.Migrations
 
                     b.Property<int>("InsuranceId")
                         .HasColumnType("int");
+
+                    b.Property<double>("PercentageCoverage")
+                        .HasColumnType("float");
 
                     b.Property<int>("PolicyCoverageTypeId")
                         .HasColumnType("int");
@@ -93,9 +98,6 @@ namespace Insurance.Web.Infrastructure.Data.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("PercentageCoverage")
-                        .HasColumnType("float");
 
                     b.Property<double>("PolicyPrice")
                         .HasColumnType("float");

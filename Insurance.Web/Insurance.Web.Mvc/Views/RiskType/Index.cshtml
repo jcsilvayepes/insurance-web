@@ -1,0 +1,30 @@
+﻿@model Insurance.Web.Mvc.Models.RiskViewModels.RiskTypeListModel
+
+@{
+    ViewData["Title"] = "Risk Types";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.RiskTypes) {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Description)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
